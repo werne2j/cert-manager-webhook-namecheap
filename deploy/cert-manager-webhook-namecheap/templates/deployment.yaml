@@ -70,6 +70,13 @@ spec:
       tolerations:
         {{ toYaml . | indent 8 }}
       {{- end }}
+      {{- if .Values.dnsPolicy }}
+      dnsPolicy: {{ .Values.dnsPolicy }}
+      {{- end }}
+      {{- with .Values.dnsConfig }}
+      dnsConfig:
+        {{ toYaml . | nindent 8 }}
+      {{- end }}
       {{- with .Values.securityContext }}
       securityContext:
         {{ toYaml . | nindent 8 }}

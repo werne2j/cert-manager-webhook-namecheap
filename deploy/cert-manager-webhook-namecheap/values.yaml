@@ -48,3 +48,12 @@ tolerations: []
 affinity: {}
 
 priorityClassName: ""
+
+# Empty by default; set to override the pod's DNS resolution entirely (e.g.
+# dnsPolicy: None + dnsConfig.nameservers) when cluster DNS can't be trusted
+# to correctly walk up to a zone's SOA record (e.g. a local DNS
+# server/ad-blocker that answers authoritatively - and incompletely - for
+# names under the zone this webhook manages).
+dnsPolicy: ""
+
+dnsConfig: {}
